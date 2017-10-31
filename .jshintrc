@@ -1,0 +1,12 @@
+{
+  "undef": true,
+  "unused": true,
+  "strict": "global",
+  "globals": {
+    "GameBoard": true,
+    "console": true,
+    "document": true,
+    "window": true,
+    "$": true
+  }
+}
