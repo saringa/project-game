@@ -17,11 +17,12 @@ Game.prototype.intro = function() {
 
   self.$container.append(self.$intro);
 
+  // self.start();
+
   $button.on('click', function() {
     self.destroyIntro();
     self.start();
   });
-
 };
 
 
@@ -39,18 +40,18 @@ Game.prototype.start = function() {
 
   self.game = new GameBoard(self.$container);
 
-  window.setTimeout(function() {
-    self.destroyGame();
-    self.gameOver();
-  }, 2000);
-
+  // window.setTimeout(function() {
+  //   self.destroyGame();
+  //   self.gameOver();
+  // }, 2000);
 };
 
 Game.prototype.destroyGame = function() {
   var self = this;
 
 
-  self.game = console.log('game destroyed');
+  console.log('game destroyed');
+  // @todo here we have to destroy the main
 };
 
 
