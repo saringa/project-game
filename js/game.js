@@ -4,6 +4,7 @@ function Game($container) {
   var self = this;
 
   self.$container = $container;
+  self.intervalId = null;
 }
 
 // -- intro --
@@ -40,18 +41,25 @@ Game.prototype.start = function() {
 
   self.game = new GameBoard(self.$container);
 
-  // window.setTimeout(function() {
-  //   self.destroyGame();
-  //   self.gameOver();
-  // }, 2000);
+  if (self.game.isOver) {
+    self.destroyGame();
+  }
+
+  self.intervalId = setInterval(function() {
+    self.game.updateStatus();
+    if (self.game.isOver) {
+      clearInterval(self.intervalId);
+      self.destroyGame();
+      self.gameOver();
+    }
+  }, 1000);
 };
 
 Game.prototype.destroyGame = function() {
   var self = this;
-
+  self.game.destroy();
 
   console.log('game destroyed');
-  // @todo here we have to destroy the main
 };
 
 
@@ -78,4 +86,5 @@ Game.prototype.destroyGameOver = function() {
   var self = this;
 
   self.$gameOver.remove();
+
 };
