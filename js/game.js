@@ -12,18 +12,19 @@ function Game($container) {
 Game.prototype.intro = function() {
   var self = this;
 
-  self.$intro = $('<div id="screen-intro"><div id="intro-title"></div></div>');
+  self.$intro = $('<div id="screen-intro"> Find all the<span style="color:gold; font-size:56px;">TREASURE</span>before time runs out!<div id="intro-title"></div></div>');
   var $button = $('<button id="intro-button">START GAME</button>');
   self.$intro.append($button);
 
   self.$container.append(self.$intro);
 
-  // self.start();
 
   $button.on('click', function() {
     self.destroyIntro();
     self.start();
+
   });
+
 };
 
 
@@ -70,7 +71,16 @@ Game.prototype.gameOver = function() {
 
   var self = this;
 
-  self.$gameOver = $('<div id="game-over-screen"><h2>GAME OVER</h2></div>');
+  if (self.game.isWon) {
+    self.$gameOver = $('<div id="game-over-screen"><h3>You Win!</h3></div>');
+    $('#game-over-screen').append('<embed src="./mp3/239-fireworks-fanfare.mp3" hidden=true>');
+  } else {
+    self.$gameOver = $('<div id="game-over-screen"><h3>GAME OVER</h3></div>');
+    $('#gameover-over-screen').append('<embed src="./mp3/209-player-down.mp3" hidden=true>');
+
+  }
+
+
   var $button = $('<button id="game-over-button">START AGAIN</button>');
   self.$gameOver.append($button);
   self.$container.append(self.$gameOver);

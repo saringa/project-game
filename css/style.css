@@ -1,13 +1,11 @@
 body {
   font-family: 'Pirata One', cursive;
-  border: 2px solid black;
 }
 
 #container {
   background: url(../img/background.jpg) no-repeat;
   background-size: cover;
   background-position: center;
-  border: 1px solid black;
   text-align: center;
   height: 100vh;
 }
@@ -20,28 +18,29 @@ h2 {
 
 #game-title {
   height: 10%;
-  border: 1px solid black;
 }
 
 #screen-intro {
   position: relative;
   display: flex;
-  border: 1px solid black;
   width: 100%;
   height: 90%;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  color: tomato;
+  font-size: xx-large;
 }
 
 #intro-title {
   font-size: 12vw;
-  border: 1px solid black;
   color: tomato;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 #intro-button {
-  border: 1px solid black;
   font-size: 4vw;
   border-radius: 5px;
   background: #1989AC;
@@ -55,14 +54,12 @@ h2 {
 }
 
 .main {
-  border: 1px solid red;
   margin: 5%;
   margin-bottom: 76%;
   align-items: center;
 }
 
 .status {
-  border: 1px solid purple;
   margin: 5%;
   display: flex;
   justify-content: space-evenly;
@@ -73,19 +70,16 @@ h2 {
 }
 
 #timer {
-  border: 1px solid green;
   color: tomato;
 }
 
 #items-left {
-  border: 1px solid green;
   color: gold;
 }
 
 #game-over-screen {
   position: relative;
   display: flex;
-  border: 1px solid black;
   width: 100%;
   height: 90%;
   flex-direction: column;
@@ -93,8 +87,12 @@ h2 {
   align-items: center;
 }
 
+h3 {
+  color: tomato;
+  font-size: 16vw;
+}
+
 #game-over-button {
-  border: 1px solid black;
   font-size: 4vw;
   border-radius: 5px;
   background: #1989AC;
@@ -108,7 +106,6 @@ h2 {
 }
 
 #board {
-  border: 1px solid black;
   margin: 5%;
   background: #3FBFBF;
   border-radius: 4px;
@@ -123,7 +120,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   line-height: initial;
-  height: 3vw;
+  height: 5vh;
 }
 
 .cell {
@@ -133,8 +130,8 @@ h2 {
   position: relative;
   align-items: center;
   line-height: initial;
-  height: 3vw;
   width: 100%;
+  height: 5vh;
 }
 
 .image-cell {

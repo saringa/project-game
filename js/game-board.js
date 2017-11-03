@@ -34,6 +34,7 @@ var GameBoard = function($container) {
   self.timeRemain = 60;
   self.itemsRemain = 0;
   self.isOver = false;
+  self.isWon = false;
 
   self.createCells();
   self.buildMain();
@@ -119,8 +120,23 @@ GameBoard.prototype.setupCell = function(cell) {
     var children1 = cell.children()[1];
     if (children1.src.indexOf('treasure') !== -1) {
       self.itemsRemain -= 1;
+      $(".status").append('<embed src="./mp3/Mario-coin-sound.mp3" hidden=true>');
     }
+
+    if (children1.src.indexOf('seawater') !== -1) {
+      setTimeout(function() {
+        $(children).css('display', 'block');
+      }, 1000);
+    }
+
+    if (children1.src.indexOf('island') !== -1) {
+      setTimeout(function() {
+        $(children).css('display', 'block');
+      }, 5000);
+    }
+
     if (self.itemsRemain === 0) {
+      self.isWon = true;
       self.isOver = true;
     }
     console.log(self.itemsRemain);
@@ -132,7 +148,6 @@ GameBoard.prototype.updateStatus = function() {
   var self = this;
 
   self.timeRemain -= 1;
-
 
   if (self.timeRemain === 0) {
     self.isOver = true;
