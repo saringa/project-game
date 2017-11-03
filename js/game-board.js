@@ -23,10 +23,12 @@ var GameBoard = function($container) {
 
   self.$timeLeft = null;
   self.$itemsLeft = null;
-  self.timeRemain = 60;
+  self.timeRemain = 45;
   self.itemsRemain = 0;
   self.isOver = false;
   self.isWon = false;
+
+  // self.soundTreasure = new Audio("Mario-coin-sound.mp3");
 
   self.createCells();
   self.buildMain();

@@ -5,6 +5,10 @@ function Game($container) {
 
   self.$container = $container;
   self.intervalId = null;
+
+  self.soundStart = new Audio("./mp3/254-athletic-bgm.mp3");
+  self.soundGameOver = new Audio("./mp3/209-player-down.mp3");
+  self.soundWin = new Audio("./mp3/239-fireworks-fanfare.mp3");
 }
 
 // -- intro --
@@ -16,13 +20,15 @@ Game.prototype.intro = function() {
   var $button = $('<button id="intro-button">START GAME</button>');
   self.$intro.append($button);
 
+
+
   self.$container.append(self.$intro);
 
 
   $button.on('click', function() {
     self.destroyIntro();
     self.start();
-
+    self.soundStart.play();
   });
 
 };
@@ -70,13 +76,14 @@ Game.prototype.destroyGame = function() {
 Game.prototype.gameOver = function() {
 
   var self = this;
+  self.soundStart.pause();
 
   if (self.game.isWon) {
     self.$gameOver = $('<div id="game-over-screen"><h3>You Win!</h3></div>');
-    // $('body').append('<embed src="./mp3/239-fireworks-fanfare.mp3" hidden=true>');
+    self.soundWin.play();
   } else {
     self.$gameOver = $('<div id="game-over-screen"><h3>GAME OVER</h3></div>');
-    // $('body').append('<embed src="./mp3/209-player-down.mp3" hidden=true>');
+    self.soundGameOver.play();
   }
 
 
@@ -87,6 +94,8 @@ Game.prototype.gameOver = function() {
   $button.on('click', function() {
     self.destroyGameOver();
     self.start();
+    self.soundStart.play();
+
   });
 
 };
