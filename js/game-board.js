@@ -1,10 +1,5 @@
 'use strict';
 
-// //Screen intro
-// intro - button.click(start) {
-//   start();
-// }
-
 //Game Logic
 var GameBoard = function($container) {
   var self = this;
@@ -25,9 +20,6 @@ var GameBoard = function($container) {
   self.cells = [];
   self.dimension = 10;
 
-  // self.treasuresClicked = 0;
-  // self.islandsClicked = 0;
-  // self.seawaterClicked = 0;
 
   self.$timeLeft = null;
   self.$itemsLeft = null;
@@ -44,7 +36,7 @@ var GameBoard = function($container) {
 };
 
 
-//Create
+//Build/Create
 GameBoard.prototype.buildMain = function() {
   var self = this;
 
@@ -120,7 +112,7 @@ GameBoard.prototype.setupCell = function(cell) {
     var children1 = cell.children()[1];
     if (children1.src.indexOf('treasure') !== -1) {
       self.itemsRemain -= 1;
-      $(".status").append('<embed src="./mp3/Mario-coin-sound.mp3" hidden=true>');
+      $("body").append('<embed src="./mp3/Mario-coin-sound.mp3" style="hidden:true; width:0; height:0">');
     }
 
     if (children1.src.indexOf('seawater') !== -1) {

@@ -62,7 +62,7 @@ h2 {
 .status {
   margin: 5%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   background-color: #40bebf;
   font-size: 3vw;

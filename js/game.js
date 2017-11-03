@@ -73,11 +73,10 @@ Game.prototype.gameOver = function() {
 
   if (self.game.isWon) {
     self.$gameOver = $('<div id="game-over-screen"><h3>You Win!</h3></div>');
-    $('#game-over-screen').append('<embed src="./mp3/239-fireworks-fanfare.mp3" hidden=true>');
+    // $('body').append('<embed src="./mp3/239-fireworks-fanfare.mp3" hidden=true>');
   } else {
     self.$gameOver = $('<div id="game-over-screen"><h3>GAME OVER</h3></div>');
-    $('#gameover-over-screen').append('<embed src="./mp3/209-player-down.mp3" hidden=true>');
-
+    // $('body').append('<embed src="./mp3/209-player-down.mp3" hidden=true>');
   }
 
 
